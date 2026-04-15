@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jeanno & Trisha Wedding</title>
+<title>Jeanno & Trisha</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -15,134 +15,107 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: #f7f5f2;
-    color: #2c2c2c;
-    overflow-x: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    background: #ffffff;
+    color: #1d1d1f;
+}
+
+/* SECTIONS */
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
 }
 
 /* HERO */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                url('https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?q=80&w=2070') center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
 .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 64px;
-    letter-spacing: 2px;
-    animation: fadeUp 1.5s ease;
+    font-size: 72px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease forwards;
 }
 
 .hero p {
-    margin-top: 15px;
-    font-size: 18px;
-    animation: fadeUp 2s ease;
+    margin-top: 10px;
+    font-size: 22px;
+    color: #6e6e73;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1.5s ease forwards;
 }
 
-.scroll-down {
-    margin-top: 40px;
-    font-size: 14px;
-    opacity: 0.8;
-    animation: fadeUp 2.5s ease;
-}
-
-/* CONTAINER */
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 60px 20px;
-}
-
-/* CARD */
-.card {
-    background: rgba(255,255,255,0.6);
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 16px;
-    margin-bottom: 40px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+/* LARGE TEXT SECTIONS */
+.big-text {
+    font-size: 56px;
+    font-weight: 500;
+    max-width: 800px;
+    line-height: 1.2;
     opacity: 0;
     transform: translateY(40px);
     transition: 1s ease;
 }
 
-.card.visible {
+.big-text.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-h2 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
-    font-size: 32px;
+/* DETAILS */
+.details p {
+    font-size: 20px;
+    margin: 8px 0;
+    color: #6e6e73;
 }
 
-/* COUNTDOWN */
-.countdown {
-    font-size: 22px;
-    letter-spacing: 1px;
+/* RSVP */
+.rsvp {
+    width: 100%;
+    max-width: 400px;
 }
 
-/* FORM */
 input, select {
     width: 100%;
     padding: 14px;
-    margin: 12px 0;
-    border-radius: 10px;
-    border: 1px solid #ddd;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 1px solid #d2d2d7;
     font-size: 14px;
 }
 
 button {
-    margin-top: 10px;
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, #c5a880, #a88d65);
+    border-radius: 12px;
     border: none;
+    background: #1d1d1f;
     color: white;
-    border-radius: 10px;
     font-size: 15px;
     cursor: pointer;
     transition: 0.3s;
 }
 
 button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background: #333;
 }
 
-/* FOOTER */
-.footer {
-    text-align: center;
-    padding: 40px;
-    font-size: 13px;
-    color: #777;
-}
-
-/* ANIMATIONS */
+/* ANIMATION */
 @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .hero h1 {
-        font-size: 40px;
-    }
+/* FOOTER */
+.footer {
+    font-size: 14px;
+    color: #86868b;
 }
 </style>
 </head>
@@ -150,90 +123,71 @@ button:hover {
 <body>
 
 <!-- HERO -->
-<section class="hero">
-    <div>
-        <h1>Jeanno & Trisha</h1>
-        <p>December 20, 2026</p>
-        <div class="scroll-down">Scroll to begin ↓</div>
-    </div>
+<section class="section hero">
+    <h1>Jeanno & Trisha</h1>
+    <p>December 20, 2026</p>
 </section>
 
-<div class="container">
+<!-- STORY / MESSAGE -->
+<section class="section">
+    <div class="big-text">We’re getting married.</div>
+</section>
 
-    <!-- COUNTDOWN -->
-    <div class="card">
-        <h2>Countdown</h2>
-        <div id="countdown" class="countdown"></div>
-    </div>
+<section class="section">
+    <div class="big-text">And we’d love for you to be part of it.</div>
+</section>
 
-    <!-- DETAILS -->
-    <div class="card">
-        <h2>Wedding Details</h2>
-        <p><strong>Venue:</strong> Your Venue Here</p>
-        <p><strong>Time:</strong> 3:00 PM</p>
-        <p><strong>Dress Code:</strong> Formal / Elegant</p>
-    </div>
+<!-- DETAILS -->
+<section class="section details">
+    <div class="big-text">Save the date.</div>
+    <p>December 20, 2026</p>
+    <p>3:00 PM</p>
+    <p>Your Venue Here</p>
+</section>
 
-    <!-- RSVP -->
-    <div class="card">
-        <h2>RSVP</h2>
+<!-- RSVP -->
+<section class="section">
+    <div class="big-text">RSVP</div>
 
-        <form id="rsvpForm">
-            <input type="text" placeholder="Full Name" required>
-            
-            <select required>
-                <option value="">Will you attend?</option>
-                <option>Yes, I will be there</option>
-                <option>Sorry, can't make it</option>
-            </select>
+    <form class="rsvp" id="rsvpForm">
+        <input type="text" placeholder="Full Name" required>
+        
+        <select required>
+            <option value="">Will you attend?</option>
+            <option>Yes, I will be there</option>
+            <option>Sorry, can't make it</option>
+        </select>
 
-            <input type="number" placeholder="Number of Guests">
+        <input type="number" placeholder="Guests">
 
-            <input type="text" placeholder="Message (optional)">
+        <button type="submit">Submit</button>
+    </form>
 
-            <button type="submit">Submit RSVP</button>
-        </form>
+    <p id="responseMsg"></p>
+</section>
 
-        <p id="responseMsg"></p>
-    </div>
-
-</div>
-
-<div class="footer">
-    We can't wait to celebrate with you 🤍
-</div>
+<!-- FOOTER -->
+<section class="section footer">
+    <p>Designed with love.</p>
+</section>
 
 <script>
-// COUNTDOWN
-const countdown = document.getElementById("countdown");
-const weddingDate = new Date("December 20, 2026 15:00:00").getTime();
-
-setInterval(() => {
-    const now = new Date().getTime();
-    const gap = weddingDate - now;
-
-    const days = Math.floor(gap / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((gap / (1000 * 60 * 60)) % 24);
-
-    countdown.innerHTML = days + " days • " + hours + " hours";
-}, 1000);
-
 // SCROLL ANIMATION
-const cards = document.querySelectorAll(".card");
+const texts = document.querySelectorAll(".big-text");
 
 window.addEventListener("scroll", () => {
-    cards.forEach(card => {
-        const top = card.getBoundingClientRect().top;
+    texts.forEach(text => {
+        const top = text.getBoundingClientRect().top;
         if (top < window.innerHeight - 100) {
-            card.classList.add("visible");
+            text.classList.add("visible");
         }
     });
 });
 
-// RSVP FAKE SUBMIT
+// RSVP (placeholder)
 document.getElementById("rsvpForm").addEventListener("submit", function(e){
     e.preventDefault();
-    document.getElementById("responseMsg").innerText = "Thank you! Your RSVP has been received 🤍";
+    document.getElementById("responseMsg").innerText = "Thank you. We’ll see you there.";
 });
 </script>
 
