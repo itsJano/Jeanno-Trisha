@@ -387,9 +387,19 @@ footer{background:var(--dark);text-align:center;padding:4rem 2rem;position:relat
   document.getElementById('ggroup').style.maxHeight='120px';
 
   window.submitRSVP=function(){
-    var name=document.getElementById('fn').value.trim();
-    if(!name){document.getElementById('fn').focus();document.getElementById('fn').style.borderColor='var(--champ-d)';return;}
-    var guests=document.getElementById('fguests').value;
+  var name=document.getElementById('fn').value.trim();
+  if(!name){document.getElementById('fn').focus();document.getElementById('fn').style.borderColor='var(--champ-d)';return;}
+  var guests=document.getElementById('fguests').value;
+  var btn=document.querySelector('.sub-btn');
+  btn.textContent='Sending...';btn.disabled=true;
+
+  fetch(https://script.google.com/macros/s/AKfycbxqogW3vVaJ_OteuN7afJ5f6t-ELstqEncG0sTAbq2EEwqtxTt2UL1hPSvXVzQTS0YH/exec, {
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name:name, attendance:att, guests:att==='yes'?guests:'0'})
+  })
+  .then(function(){
     var form=document.getElementById('rsvp-form');
     form.style.transition='opacity .4s ease,transform .4s ease';
     form.style.opacity='0';form.style.transform='translateY(-10px)';
@@ -404,8 +414,12 @@ footer{background:var(--dark);text-align:center;padding:4rem 2rem;position:relat
         :'We\'ll miss you, '+name+'. Thank you for letting us know. You\'ll be in our hearts that day.';
       spawnPetals();
     },400);
-  };
-
+  })
+  .catch(function(){
+    btn.textContent='Send My Reply';btn.disabled=false;
+    alert('Something went wrong. Please try again.');
+  });
+};
   function spawnPetals(){
     var c=document.getElementById('petals');
     for(var i=0;i<20;i++){
